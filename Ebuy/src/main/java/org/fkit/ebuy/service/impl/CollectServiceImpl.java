@@ -48,4 +48,10 @@ public class CollectServiceImpl implements CollectService {
 	 collectMapper.decollect(product_id);
 	}
 
+	@Override
+	public Collect Findone(int product_id, String username) {
+		// TODO Auto-generated method stub
+		return collectMapper.Findone(username, product_id);
+	}
+
 }

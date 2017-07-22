@@ -53,10 +53,18 @@ public class CartController {
 				String image, 
 				String number,
 				String username,
-			   ModelAndView mv ){
+			   ModelAndView mv,
+			   HttpSession session){
+		Cart cart = cartService.Findone(product_id,username);
+	    if(cart !=null ){
+	    	mv.addObject("message","商品已经在购物车，请前往购物车查看！");
+	    	mv.setViewName("product");
+	    }else{
 		Cart newcart = cartService.newcart(product_id,name, price,image,number,username);
 		mv.setViewName("product");
-		return mv;
+		
+	}
+	    return mv;
 	}
 // 删除物品
 	@RequestMapping(value="/deletecart")

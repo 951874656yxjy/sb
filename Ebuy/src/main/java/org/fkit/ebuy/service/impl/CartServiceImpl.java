@@ -55,5 +55,11 @@ public class CartServiceImpl implements CartService {
 		return  cartMapper.updatecart(product_id,username,number);
 	}
 
+	@Override
+	public Cart Findone(int product_id, String username) {
+		// TODO Auto-generated method stub
+		return cartMapper.Findone(username, product_id);
+	}
+
 
 }

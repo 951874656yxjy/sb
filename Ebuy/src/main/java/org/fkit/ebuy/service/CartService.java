@@ -24,6 +24,8 @@ public interface CartService {
 
 	Cart updatecart(int product_id, String username, String number);
 
+	Cart Findone(int product_id, String username);
+
 	
 	
 

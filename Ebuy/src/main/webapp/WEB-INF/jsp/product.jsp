@@ -65,8 +65,9 @@
 
    </div>
    
-
+ 
  <div class="container" >
+ <h2 >${requestScope.message }</h3>
  		<c:forEach items="${requestScope.p_list }" var="product">
    <div class="col-md-1" >
    				
@@ -112,6 +113,7 @@
          </p>
          <br><br> 
          <form action="newcollect">
+         <font color="red">${requestScope.message }</font>
          <div class="col-md-6">
 	         <div class="col-md-4">
 	         		<input type="hidden" name="product_id" id="product_id" tabindex="1" class="form-control" value="${product.id}" > 
@@ -127,6 +129,7 @@
           </div> 
           </form>   
            <form action="newcart">
+           <font color="red">${requestScope.message }</font>
            <div class="col-md-6">
 		         <div class="col-md-4">
 		         		<input type="hidden" name="product_id" id="product_id" tabindex="1" class="form-control" value="${product.id}" > 

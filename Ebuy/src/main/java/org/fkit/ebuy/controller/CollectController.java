@@ -2,6 +2,7 @@ package org.fkit.ebuy.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 
 import org.fkit.ebuy.domain.Collect;
 import org.fkit.ebuy.service.CollectService;
@@ -39,16 +40,19 @@ public class CollectController {
 		return "collection";
 	}
 	@RequestMapping(value="/newcollect")
-	 public ModelAndView newcollect(int product_id,
-			 String goodsname,
-				String price, 
-				String image, 
-				String descripts,
-				String username,
-			   ModelAndView mv ){
-		Collect newcollect = collectService.newcollect(product_id,goodsname, price,image,descripts,username);
-		mv.setViewName("product");
-		return mv;
+	 public ModelAndView newcollect(int product_id, String goodsname,String price, String image, String descripts,
+				String username, ModelAndView mv ,HttpSession session){
+		
+		Collect collect = collectService.Findone(product_id,username);
+	    if(collect !=null ){
+	    	mv.addObject("message","商品已经收藏！");
+	    	mv.setViewName("product");
+	    }else{
+	    	Collect newcollect = collectService.newcollect(product_id,goodsname, price,image,descripts,username);
+			mv.setViewName("product");
+		
+	    }
+		return mv;	
 	}
 	
 	@RequestMapping(value="/deletecollection")

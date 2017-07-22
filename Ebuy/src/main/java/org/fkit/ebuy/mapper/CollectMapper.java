@@ -26,6 +26,9 @@ public interface CollectMapper {
    
 	@Delete("delete from tb_collect where product_id=#{product_id}")
 	void decollect(int product_id);
+	
+	@Select(" select * from tb_collect where username=#{username} and product_id=${product_id}")
+	Collect Findone(@Param("username")String username,@Param("product_id")int product_id);
    
 
 }

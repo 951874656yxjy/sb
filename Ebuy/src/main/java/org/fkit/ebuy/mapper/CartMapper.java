@@ -35,6 +35,8 @@ public interface CartMapper {
 	@Select("update tb_cart set number=#{number} where product_id=#{product_id} and username=#{username}")
 	Cart updatecart(@Param("product_id")int product_id,@Param("username")String username,@Param("number")String number);
 	
+	@Select(" select * from tb_cart where username=#{username} and product_id=${product_id}")
+	Cart Findone(@Param("username")String username,@Param("product_id")int product_id);
 	
 
 	

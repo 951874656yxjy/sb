@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.fkit.ebuy.domain.Comment;
 import org.fkit.ebuy.domain.Product;
-import org.fkit.ebuy.service.PictureService;
+
 import org.fkit.ebuy.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -80,7 +80,8 @@
              	<td style="vertical-align: middle;">${order.totalprice}</td>
              	<td style="vertical-align: middle;">${order.status}</td>
              	<td>
-             		<p><a href="comment?id=${order.good_id}" class="btn btn-warning" role="button"> 确认收货前往评论</a></p>
+             		<p><a href="comment?id=${order.good_id}" id="comment" class="btn btn-warning" role="button" > 确认收货前往评论</a></p>
+             
              	</td>
              </tr>
             </c:forEach>

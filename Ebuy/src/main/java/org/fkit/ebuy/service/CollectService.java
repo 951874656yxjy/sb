@@ -23,4 +23,6 @@ public interface CollectService {
 
 	void decollect(int product_id);
 
+	Collect Findone(int product_id, String username);
+
 }
