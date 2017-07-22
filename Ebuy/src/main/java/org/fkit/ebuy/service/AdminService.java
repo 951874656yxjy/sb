@@ -42,4 +42,8 @@ public interface AdminService {
 		List<Product> getAll5();
 
 		Product updatecatagory(int id, String name, String price, String typeid);
+
+		List<User> getAll6(String username);
+
+		User find(String username, String email);
 }

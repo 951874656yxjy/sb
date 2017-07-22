@@ -1,0 +1,44 @@
+table.myown {
+font-family: verdana,arial,sans-serif;
+font-size:20px;
+width:88%;
+text-align:center;
+color:#641802;
+border-width: 1px;
+border-color: #999999;
+border-collapse: collapse;
+}
+
+
+table.myown th {
+background-color:#0000FF;
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #a9c6c9;
+}
+
+
+table.myown  tr {
+background-color:#99CCFF;
+}
+
+table.myown  td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #a9c6c9;
+}
+
+
+table.myown button.btn{ 
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;	
+	
+}
+
+</style>

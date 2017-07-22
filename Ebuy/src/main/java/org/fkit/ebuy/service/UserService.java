@@ -23,6 +23,8 @@ public interface UserService {
 
 	User update(String username, String loginname, String email, String phonenumber,String password);
 
+	User findpwd(String username, String email);
+
 	
 	}
 

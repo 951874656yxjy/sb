@@ -1,7 +1,10 @@
 package org.fkit.ebuy.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.fkit.ebuy.controller.UserController;
 import org.fkit.ebuy.domain.User;
 import org.fkit.ebuy.service.UserService;
@@ -76,24 +79,24 @@ public class UserController {
 		}
 		return mv;
 	}
-	@RequestMapping(value="/findpassword",method=RequestMethod.POST)
-	public ModelAndView find(String username,
-			String loginname,
-			String email,
-			String phonenumber,
-		ModelAndView mv,
-		HttpSession session){
-		User user1=userService.protect(username, loginname,email,phonenumber);
-		if(user1!=null){
-			session.setAttribute("user1", user1);
-			mv.setViewName("readuser");
-		}
-		else{
-			mv.addObject("message","验证失败！");
-			mv.setViewName("findpassword");
-		}
-		return mv;
-	}
+//	@RequestMapping(value="/findpassword",method=RequestMethod.POST)
+//	public ModelAndView find(String username,
+//			String loginname,
+//			String email,
+//			String phonenumber,
+//		ModelAndView mv,
+//		HttpSession session){
+//		User user1=userService.protect(username, loginname,email,phonenumber);
+//		if(user1!=null){
+//			session.setAttribute("user1", user1);
+//			mv.setViewName("readuser");
+//		}
+//		else{
+//			mv.addObject("message","验证失败！");
+//			mv.setViewName("findpassword");
+//		}
+//		return mv;
+//	}
 	@RequestMapping(value="/newpwd",method=RequestMethod.POST)
 	public ModelAndView update(
 			String loginname,
@@ -115,6 +118,46 @@ public class UserController {
 		mv.setViewName("success");
 		return mv;
 	}
+	
+	@RequestMapping(value="/findpassword")
+	 public ModelAndView find(String username,String email,ModelAndView mv,HttpSession session, HttpServletResponse response) throws Exception{		
+		User user=userService.findpwd(username, email);
+		if(user!=null){
+			StringBuffer url=new StringBuffer();
+			StringBuilder builder=new StringBuilder();
+			builder.append("");
+			url.append("您的密码是："+user.getPassword()+"");
+			builder.append("");
+			builder.append(""+url+"");
+			
+			System.out.print("builder输出");
+			builder.append("");
+			SimpleEmail sendemail=new SimpleEmail();
+			sendemail.setHostName("smtp.163.com");
+			sendemail.setAuthentication("18051369196@163.com","yx960801");
+			sendemail.setCharset("UTF-8");
+			try{
+				sendemail.setCharset("UTF-8");
+				sendemail.addTo(email);
+				sendemail.setFrom("18051369196@163.com");
+				sendemail.setSubject("找回密码");
+				sendemail.setMsg(builder.toString());
+				sendemail.send();
+				System.out.println(builder.toString());
+			}catch(EmailException e){
+				e.printStackTrace();
+				System.out.print("抛出异常");
+			}
+			mv.setViewName("newpassword");
+		
+		}else{
+			
+			response.getWriter().println("密码获取失败");
+			System.out.print("密码获取失败");
+		}	
+		return mv;
+	}
+
 	 
 }
 	

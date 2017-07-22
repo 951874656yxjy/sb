@@ -74,7 +74,7 @@
 								</a>
 								</li>
 								<li>
-									<a href="deleteproduct">
+									<a href="deletproduct">
 										<i class="icon-double-angle-right"></i>
 									商品删除管理
 									</a>
@@ -100,7 +100,7 @@
 										用户订单浏览
 									</a>
 								</li>
-								
+							
 							</ul>
 						</li>
 						<li>
@@ -226,47 +226,40 @@
 						</ul><!-- .breadcrumb -->
 					</div>
 					<div class="page-content">
-						<h2>查询订单</h2>
-    <table class="table table-condensed" border="1">
-     	<thead>
-        	<tr> 
-            	<th>订单号</th>  
-            	<th>用户名</th>   
-                <th >运送地址</th>
-                <th >联系电话</th>
-                <th >总金额 </th>
-                <th >状态</th>
-                <th></th>
-            </tr>
-       </thead>
-            <c:forEach items="${requestScope.order_list }" var="order">
-             <tr >
-             	<td style="vertical-align: middle;">${order.id } </td>
-             	<td style="vertical-align: middle;">${order.username }</td>
-             	<td style="vertical-align: middle;">${order.address }</td>
-             	<td style="vertical-align: middle;">${order.phone} </td>
-             	<td style="vertical-align: middle;">${order.totalprice} </td>
-             	<td style="vertical-align: middle;">
-             		<form action="updateorder"  method="post">
-             			<input type="hidden" id="id" name="id" value="${order.id}"/>
-             			<input type="hidden" id="address" name="address" value="${order.address}"/>
-             			<input type="hidden" id="phone" name="phone" value="${order.phone}"/>
-             			<input type="hidden" id="totalprice" name="totalprice" value="${order.totalprice}"/>
-             		<input type="hidden" id="status" name="status" value="已发货" />
-             		
-           			
-             			
-             			<button class="btn btn-default ">发货</button>   
-             		</form>
-             	</td>
-             	<td style="vertical-align: middle;">
 
-             			<a href="send.action?username=${order.username }" class="btn btn-default ">通知顾客</a>   
-             		</form>
-             	</td>
-             </tr>
-            </c:forEach>
-     </table>
+						 <form action="tell" method="post"> 
+		  <c:forEach items="${requestScope.user_list }" var="u">
+		  	 <div class="col-md-12 ">
+		  	     <div class="row">
+					
+                      
+		   		        <div class="form-group">
+                           <div class="col-md-3">  用 户 姓名：</div>
+                           <div class="col-md-9">
+                                   <input type="text" name="username" id="username" tabindex="1" class="form-control"  value="${u.username }">
+                           </div> 
+		   		        </div>
+		   		        <div class="form-group">
+                           <div class="col-md-3">  邮箱地址：</div>
+                           <div class="col-md-9">
+                                   <input type="email" name="email" id="email" tabindex="1" class="form-control" value="${u.email }">
+                           </div> 
+		   		        </div>
+		   		       
+				        <div class="form-group">
+							<div class="row">
+								<div class="col-sm-5 col-sm-offset-4">
+									<button type="submit" class="btn btn-default btn-lg" >发送邮件</button>
+								</div>
+							</div>
+						</div>
+		
+			</div>
+			</div>
+			</c:forEach>
+		</form>
+						
+						
 
 					</div><!-- /.page-content -->
 

@@ -112,6 +112,18 @@ import org.springframework.transaction.annotation.Transactional;
 			return adminMapper.updatecatagory(id, name,price,typeid);
 		}
 
+		@Override
+		public List<User> getAll6(String username) {
+			// TODO Auto-generated method stub
+			return adminMapper.findAll6(username);
+		}
+
+		@Override
+		public User find(String username, String email) {
+			// TODO Auto-generated method stub
+			return adminMapper.find(username,email);
+		}
+
 	
 
 	

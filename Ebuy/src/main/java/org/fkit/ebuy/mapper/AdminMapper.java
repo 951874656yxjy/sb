@@ -62,4 +62,10 @@ public interface AdminMapper {
 		@Select("update tb_product set name=#{name},price=#{price},typeid=#{typeid} where id=#{id}")
 		Product updatecatagory(@Param("id")int id,@Param("name")String name,@Param("price")String price,@Param("typeid")String typeid);
 
+		@Select(" select * from tb_user where username=#{username}")
+		List<User> findAll6(String username);
+		
+		@Select("select * from tb_user where username=#{username} and email=#{email}")
+		User find(@Param("username")String username,
+				@Param("email") String email);
 }

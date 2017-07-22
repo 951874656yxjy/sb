@@ -10,8 +10,10 @@
 	<title>购物车</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link href="bootstrap.min.css" rel="stylesheet" type="text/css">
-	
+<link rel="stylesheet" href="css/star.css">
 </head>
+
+<script src="js/jquery.min.js"></script>
 <body>
   <div class="container">
   <div class="row"> 
@@ -102,7 +104,7 @@
   
   
 <hr>
-  <div class="container">
+<div class="container">
     <h2>商品评论</h1>
  <form class="form-horizontal" action="submitcomment" method="post" >
  
@@ -112,7 +114,7 @@
   </div>
   <div class="form-group">
   	
-  					<a style="color:block"> 0-1分 ：很不满意</a>&nbsp;
+  			<!--  		<a style="color:block"> 0-1分 ：很不满意</a>&nbsp;
     				<a style="color:yellow"> 1-2分: 较不满意</a>&nbsp;
     				<a style="color:green">  2-3分：一般 </a>&nbsp;
     				<a style="color:"> 3-4分：比较满意 </a>&nbsp;
@@ -123,7 +125,41 @@
                 <li>商品质量:   <a><input type="text" name ="quality" id ="input" onkeyup="checkinput_zzjs(event)"/>分 </a></li>
             	<li>卖家服务:   <a><input type="text" name ="service" id="input"  onkeyup="checkinput_zzjs(event)"/>分 </a> </li>
                 <li>物流服务:   <a><input type="text" name ="logistics" id ="input" onkeyup="checkinput_zzjs(event)"/>分 </a></li>
-     </ul>
+     </ul>  -->
+     
+     <div class="form-group">
+     <div class="stars">
+    <span>商品质量：</span>
+    <i>★</i>
+    <i>★</i>
+    <i>★</i>
+    <i>★</i>
+    <i>★</i>
+    <input type="text" id ="quality" name ="quality" class="form-control"/>
+</div>
+<div class="stars">
+    <span>卖家服务：</span>
+    <i class="" score="1">★</i>
+    <i class="" score="2">★</i>
+    <i class="" score="3">★</i>
+    <i class="" score="4">★</i>
+    <i class="" score="5">★</i>
+    <input type="text" id ="service" name="service" class="form-control"/>
+</div>
+<div class="stars">
+    <span>物流服务：</span>
+    <i>★</i>
+    <i>★</i>
+    <i>★</i>
+    <i>★</i>
+    <i>★</i>
+    <input type="text" id ="logistics" name ="logistics" class="form-control"/>
+</div>
+   </div>
+     
+     
+     
+     
 	</div>	 
 
    <div class="input-group input-group-lg">
@@ -141,18 +177,51 @@
 </div>
  </c:forEach>
  
-<script language="javascript">
-function checkinput_zzjs(event){
-  if (event.srcElement.id=="input") {
-    if (event.srcElement.value>5) {
-      event.srcElement.value="5";
-      alert("评分必须是小于5的数字！");
-      event.srcElement.select();
-    }
-  }
-}
+
+<script>
+    $(function(){
+        /*
+        * 鼠标点击，该元素包括该元素之前的元素获得样式,并给隐藏域input赋值
+        * 鼠标移入，样式随鼠标移动
+        * 鼠标移出，样式移除但被鼠标点击的该元素和之前的元素样式不变
+        * 每次触发事件，移除所有样式，并重新获得样式
+        * */
+        var stars = $('.stars');
+        var Len = stars.length;
+        //遍历每个评分的容器
+        for(i=0;i<Len;i++){
+            //每次触发事件，清除该项父容器下所有子元素的样式所有样式
+            function clearAll(obj){
+                obj.parent().children('i').removeClass('on');
+            }
+            stars.eq(i).find('i').click(function(){
+                var num = $(this).index();
+                clearAll($(this));
+                //当前包括前面的元素都加上样式
+                $(this).addClass('on').prevAll('i').addClass('on');
+                //给隐藏域input赋值
+                $(this).siblings('input').val(num);
+            });
+            stars.eq(i).find('i').mouseover(function(){
+                var num = $(this).index();
+                clearAll($(this));
+                //当前包括前面的元素都加上样式
+                $(this).addClass('on').prevAll('i').addClass('on');
+            });
+            stars.eq(i).find('i').mouseout(function(){
+                clearAll($(this));
+                //触发点击事件后input有值
+                var score = $(this).siblings('input').val();
+                for(i=0;i<score;i++){
+                    $(this).parent().find('i').eq(i).addClass('on');
+                }
+            });
+        }
+    })
 </script>
+
 <script src="jquery/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+
 </body>
 </html>

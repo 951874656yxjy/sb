@@ -49,6 +49,14 @@ public interface UserMapper {
 
 	
 	
+	
+	@Select("select * from tb_user where username=#{username} and email=#{email}")
+	User findpwd(@Param("username")String username,
+			@Param("email") String email);
+
+
+
+
 	}
 	
 	

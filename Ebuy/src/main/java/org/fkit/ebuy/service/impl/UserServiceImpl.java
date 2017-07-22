@@ -51,6 +51,13 @@ public class UserServiceImpl implements UserService {
 		return userMapper.updatepassword(username, loginname,email, phonenumber,password);
 	}
 
+	@Override
+	public User findpwd(String username, String email) {
+		// TODO Auto-generated method stub
+	 return userMapper.findpwd(username,email);
+
+	}
+
 
 
 	

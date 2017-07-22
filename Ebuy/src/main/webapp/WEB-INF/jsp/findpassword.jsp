@@ -1,28 +1,19 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>欢迎你登录易购</title>
-
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<meta charset="utf-8"> 
+	<title>找回密码</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body >
 
-<div class=" container">
+<div class="container">
 	<div class="row">
 		        		<div class="col-md-9 col-sm-6">
 		            		<p><a href="main" class="btn btn-danger btn-lg">  <span class="glyphicon glyphicon-home"></span> <strong>易购</strong></a> 
@@ -42,22 +33,11 @@
 						<hr>
 					</div>
 		  	 <form action="findpassword" method="post"> 
-		  	   <font color="red">${requestScope.message }</font>
+		  
 		  	 <div class="col-md-12 ">
 		  	     <div class="row">
-						<div class="form-group">
-                           <div class="col-md-3 ">  用 户 名：</div>
-                           <div class="col-md-9">
-                                   <input type="text" name="loginname" id="loginname" tabindex="1" class="form-control" placeholder="请输入你的用户名" value="">
-                           </div> 
-		   		        </div>
-		   		      <!--   <div class="form-group">
-                           <div class="col-md-3">  曾使用密码：</div>
-                           <div class="col-md-9">
-                                   <input type="text" name="password" id="password" tabindex="1" class="form-control" placeholder="请输入一个你使用过的密码" value="">
-                           </div> 
-		   		        </div>
-		   		        --> 
+					
+                      
 		   		        <div class="form-group">
                            <div class="col-md-3">  用 户 姓名：</div>
                            <div class="col-md-9">
@@ -70,19 +50,7 @@
                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="请输入注册使用的邮箱" value="">
                            </div> 
 		   		        </div>
-		   		        <div class="form-group">
-                           <div class="col-md-3">  联系电话：</div>
-                           <div class="col-md-9">
-                                   <input type="text" name="phonenumber" id="phonenumber" tabindex="1" class="form-control" placeholder="请输入注册使用的电话号码" value="">
-                           </div> 
-		   		        </div>
-		   		    	 <!--     <div class="form-group">
-                           <div class="col-md-3">  设置新密码：</div>
-                           <div class="col-md-9">
-                                   <input type="text" name="newpassword" id="newpassword" tabindex="1" class="form-control" placeholder="请输入密码" value="">
-                           </div> 
-		   		        </div>
-		   		        -->
+		   		       
 				        <div class="form-group">
 							<div class="row">
 								<div class="col-sm-5 col-sm-offset-4">
@@ -90,6 +58,7 @@
 								</div>
 							</div>
 						</div>
+		
 			</div>
 			</div>
 		</form>

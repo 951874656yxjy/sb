@@ -46,6 +46,12 @@ dependencies {
 	compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.2.1'
 	compile group: 'commons-io', name: 'commons-io', version: '2.4'
 	compile group: 'org.springframework', name: 'spring-test', version: '3.2.0.RELEASE'
+   compile 'javax.servlet:javax.servlet-api:3.1.0'
+	compile 'javax.servlet:jstl:1.2'
+	compile 'aspectj:aspectjweaver:1.5.4'
+	compile 'commons-io:commons-io:2.5'
+	compile 'commons-fileupload:commons-fileupload:1.2.2'
+	compile 'org.apache.commons:commons-email:1.4'
    
     testCompile 'junit:junit:4.12'
 }

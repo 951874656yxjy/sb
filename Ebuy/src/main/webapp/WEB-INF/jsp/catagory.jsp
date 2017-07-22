@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="assets/css/ace.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="css/table.css" />
 	</head>
 
 	<body>
@@ -228,7 +229,7 @@
 					<div class="page-content">
 					 <h2>商品类别管理</h2>
   
-    <table class="table table-condensed" border="1">
+    <table class="myown" border="1">
      	<thead>
         	<tr> 
             	<th>商品编号</th>  
@@ -253,7 +254,7 @@
              	<!--  		<input type="hidden" id="name" name="name" value="${n.name}"/>
              			<input type="hidden" id="typeid" name="typeid" value="${n.typeid}"/>
              			<input type="hidden" id="price" name="price" value="${n.price}" />-->
-             			<button class="btn btn-default ">修改</button>   
+             			<button class="myown btn ">修改</button>   
              	</td>
              </tr>
             </form>

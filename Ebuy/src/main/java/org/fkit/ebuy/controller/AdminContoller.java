@@ -2,8 +2,11 @@ package org.fkit.ebuy.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.fkit.ebuy.domain.Admin;
 import org.fkit.ebuy.domain.Order;
 import org.fkit.ebuy.domain.Product;
@@ -69,11 +72,66 @@ public class AdminContoller {
 	 public String lookorder(Model model){
 		// 获得所有图书集合
 		List<Order> order_list = adminService.getAll();
+		
 		// 将图书集合添加到model当中
+	
 		model.addAttribute("order_list", order_list);
 		// 跳转到main页面
 		return "lookorder";
 	} 
+	 
+	 @RequestMapping(value="/send")
+	 public String user(Model model,
+			 String username){
+		// 获得所有图书集合
+		
+		List<User> user_list = adminService.getAll6(username);
+		// 将图书集合添加到model当中
+		model.addAttribute("user_list", user_list);
+		
+		// 跳转到main页面
+		return "send";
+	}  
+	 
+	 @RequestMapping(value="/tell")
+	 public ModelAndView find(String username,String email,ModelAndView mv,HttpSession session, HttpServletResponse response) throws Exception{		
+		User user=adminService.find(username, email);
+		if(user!=null){
+			StringBuffer url=new StringBuffer();
+			StringBuilder builder=new StringBuilder();
+			builder.append("");
+			url.append("您的商品已发货，请耐心等待，很快送达你手中！");
+			builder.append("");
+			builder.append(""+url+"");
+			
+			System.out.print("builder输出");
+			builder.append("");
+			SimpleEmail sendemail=new SimpleEmail();
+			sendemail.setHostName("smtp.163.com");
+			sendemail.setAuthentication("18051369196@163.com","yx960801");
+			sendemail.setCharset("UTF-8");
+			try{
+				sendemail.setCharset("UTF-8");
+				sendemail.addTo(email);
+				sendemail.setFrom("18051369196@163.com");
+				sendemail.setSubject("找回密码");
+				sendemail.setMsg(builder.toString());
+				sendemail.send();
+				System.out.println(builder.toString());
+			}catch(EmailException e){
+				e.printStackTrace();
+				System.out.print("抛出异常");
+			}
+			mv.setViewName("newpassword");
+		
+		}else{
+			
+			response.getWriter().println("密码获取失败");
+			System.out.print("密码获取失败");
+		}	
+		return mv;
+	}
+
 //  修改订单
 	 @RequestMapping(value="/updateorder",method=RequestMethod.POST)
 		public ModelAndView updateorder(
