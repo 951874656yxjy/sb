@@ -56,4 +56,7 @@ public interface CartMapper {
 	Cart selectCartWithUsername(Map<String, Object> param);
 
 
+
+	@Select("insert into tb_cart(product_id,name,price,image,number,username) values(#{product_id},#{name},#{price},#{image},#{number},#{username})")
+	void insertcart(Cart e);
 	}

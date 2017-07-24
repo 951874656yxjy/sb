@@ -25,6 +25,8 @@ public interface UserService {
 
 	User findpwd(String username, String email);
 
+	List<User> getAll();
+
 	
 	}
 

@@ -6,8 +6,10 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.fkit.ebuy.domain.Cart;
+
 import org.fkit.ebuy.factory.FKSqlSessionFactory;
 import org.fkit.ebuy.mapper.CartMapper;
+
 
 
 public class CartTest {
@@ -24,10 +26,10 @@ public class CartTest {
 //		t.testSelectWhitParam(em);
 		
 		
-	//	t.testUpdateCart(em);
+//	t.testUpdateCart(em);
 		
-	t.testDeleteCart(em);
-		
+t.testDeleteCart(em);
+//		t.testInsertcart(em);		
 		// 提交事务
 		session.commit();
 		// 关闭Session
@@ -55,7 +57,7 @@ public class CartTest {
 		// 查询id为1的员工
 		Cart e = em.selectCartWithUsername(param);
 		// 修改员工对象的三个属性
-		e.setNumber("99");
+		e.setNumber("100");
 		// 动态更新
 		em.updateCart2(e);
 		System.out.println("更改成功");
@@ -72,6 +74,22 @@ public class CartTest {
 		em.deleteCart(param);
 		System.out.println("删除成功");
 
+	}
+	
+	public void testInsertcart(CartMapper em){
+		
+		Cart e = new Cart();
+		e.setProduct_id(1);
+		e.setName("1232");
+		e.setUsername("玛丽");
+		e.setName("超人");
+		e.setPrice("85");
+		e.setImage("T恤1.1.jpg");
+		e.setNumber("8");
+		// 注意：没有设置state属性，则insert语句中不会包含state列
+		// e.setState("ACTIVE");
+		em.insertcart(e);
+		System.out.println("插入成功！商品id：" + e.getProduct_id() );
 	}
 	
 	

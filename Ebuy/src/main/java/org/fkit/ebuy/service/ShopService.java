@@ -24,7 +24,7 @@ public interface ShopService {
 	
 	List<Product> getAll4();
 //
-//	List<Product> getAll5(int id);
+	List<Product> getAll5(int id);
 
 	
 

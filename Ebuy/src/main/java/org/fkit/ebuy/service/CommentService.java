@@ -24,4 +24,6 @@ public interface CommentService {
 
 	List<Product> getAll(int id);
 
+
+
 }

@@ -1,5 +1,7 @@
 package org.fkit.ebuy.service.impl;
 
+import java.util.List;
+
 import org.fkit.ebuy.domain.User;
 import org.fkit.ebuy.mapper.UserMapper;
 import org.fkit.ebuy.service.UserService;
@@ -57,6 +59,14 @@ public class UserServiceImpl implements UserService {
 	 return userMapper.findpwd(username,email);
 
 	}
+
+	@Override
+	public List<User> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 
 

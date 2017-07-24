@@ -43,7 +43,8 @@ public class CommentController {
 //	}
 	@RequestMapping(value="/comment")
 	 public String comment(Model model,
-			 int id){
+			 int id,
+			 ModelAndView mv){
 		// 获得所有图书集合
 		List<Product> product_list = commentService.getAll(id);
 		// 将图书集合添加到model当中

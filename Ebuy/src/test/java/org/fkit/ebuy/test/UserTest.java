@@ -29,7 +29,7 @@ public class UserTest {
 public void testInsertUser(UserMapper em){
 	
 	User e = new User();
-	e.setLoginname("1551me");
+	e.setLoginname("1255me");
 	e.setPassword("123456");
 	e.setUsername("玛丽");
 	e.setEmail("123@123");
@@ -45,7 +45,7 @@ public void testInsertUser(UserMapper em){
 public void testUpdateUserPassword(UserMapper em){
 	// 使用Map装载参数
 	Map<String, Object> param = new HashMap<String, Object>();
-	param.put("loginname",999);
+	param.put("loginname",123);
 	User e = em.selectUserWithLoginname(param);
 	e.setPassword("3333");
 	em.updateUserPassword(e);

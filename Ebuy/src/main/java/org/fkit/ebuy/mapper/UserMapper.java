@@ -34,7 +34,7 @@ public interface UserMapper {
 	List<User> selectAllUser();
 	
 	@Select("insert into tb_user(loginname,password,username,email,phonenumber) values(#{loginname},#{password},#{username},#{email},#{phonenumber})")
-	void insertuser3(User e);
+	void insertuser3(User user);
 
 	@Select("update tb_user set  loginname=#{loginname} , username=#{username} ,email=#{email} , phonenumber=#{phonenumber} ,password=#{password}  ,id=#{id} where loginname=#{loginname}")
 	void updateUserPassword(User e);
@@ -53,8 +53,6 @@ public interface UserMapper {
 	@Select("select * from tb_user where username=#{username} and email=#{email}")
 	User findpwd(@Param("username")String username,
 			@Param("email") String email);
-
-
 
 
 	}

@@ -56,10 +56,10 @@ public class ShopServiceImpl implements ShopService {
 		return shopMapper.findAll4();
 	}
    
-//   public List<Product> getAll5(int id) {
-//		
-//		return shopMapper.findAll5( id);
-//	}
+   public List<Product> getAll5(int id) {
+		
+		return shopMapper.findAll5( id);
+	}
 
 
 }

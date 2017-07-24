@@ -71,15 +71,15 @@ public class ShopController {
 		// 跳转到main页面
 		return "sweater";
 	}
-//	@RequestMapping(value="/product")
-//	 public String look(int id,
-//			 Model model){
-//		// 获得所有图书集合
-//		List<Product> p_list = shopService.getAll5(id);
-//
-//		model.addAttribute("p_list", p_list);
-//		// 跳转到main页面
-//		return "product";
-//	}
-//	
+	@RequestMapping(value="/produc111t")
+	 public String look(int id,
+			 Model model){
+		// 获得所有图书集合
+		List<Product> p_list = shopService.getAll5(id);
+
+		model.addAttribute("p_list", p_list);
+		// 跳转到main页面
+		return "product";
+	}
+	
 }

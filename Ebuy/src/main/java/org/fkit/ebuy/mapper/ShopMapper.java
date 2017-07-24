@@ -30,6 +30,6 @@ public interface ShopMapper {
 	@Select(" select * from tb_product where typeid=4")
 	List<Product> findAll4();
 	
-//	@Select(" select * from tb_product where id=#{id}")
-//	List<Product> findAll5(int id);
+	@Select(" select * from tb_product where id=#{id}")
+	List<Product> findAll5(int id);
 }
