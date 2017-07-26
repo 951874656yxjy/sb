@@ -18,13 +18,18 @@ public interface CartService {
 	 * */
 	List<Cart> getAll(String username);
 
-	Cart newcart(int product_id,String name, String price, String image, String number,  String username);
+	Cart newcart(int product_id,String name, String price, String image, int number,  String username);
 
 	void decart(int product_id);
 
-	Cart updatecart(int product_id, String username, String number);
+
 
 	Cart Findone(int product_id, String username);
+
+
+	Cart updatecart(int product_id, String username, int number);
+
+	Cart updatenumber(int product_id, String username, int number);
 
 	
 	

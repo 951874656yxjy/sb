@@ -51,12 +51,14 @@ public class CartController {
 			 String name,
 				String price, 
 				String image, 
-				String number,
+				int number,
 				String username,
 			   ModelAndView mv,
 			   HttpSession session){
 		Cart cart = cartService.Findone(product_id,username);
 	    if(cart !=null ){
+	   
+	    	Cart upnumber = cartService.updatenumber(product_id,username,number);	
 	    	mv.addObject("message","商品已经在购物车，请前往购物车查看！");
 	    	mv.setViewName("product");
 	    }else{
@@ -78,7 +80,7 @@ public class CartController {
 	public ModelAndView updatecart(
 	        int product_id,
 			String username,
-			String number,
+			int number,
 			ModelAndView mv,
 			HttpSession session){
 			Cart cart1=cartService.updatecart(product_id,username,number);

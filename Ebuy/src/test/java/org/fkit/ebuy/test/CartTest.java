@@ -23,12 +23,12 @@ public class CartTest {
 		// 获取EmployeeMapper对象
 		CartMapper em = session.getMapper(CartMapper.class);
 		
-//		t.testSelectWhitParam(em);
+	t.testSelectWhitParam(em);
 		
 		
 //	t.testUpdateCart(em);
 		
-t.testDeleteCart(em);
+//t.testDeleteCart(em);
 //		t.testInsertcart(em);		
 		// 提交事务
 		session.commit();

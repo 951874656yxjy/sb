@@ -37,7 +37,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart newcart(int product_id,String name, String price, String image, String number,  String username) {
+	public Cart newcart(int product_id,String name, String price, String image,int number,  String username) {
 		// TODO Auto-generated method stub
 		return cartMapper.newcart(product_id,name, price,image,number,username);
 
@@ -50,7 +50,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart updatecart(int product_id, String username,String number) {
+	public Cart updatecart(int product_id, String username,int number) {
 		// TODO Auto-generated method stub
 		return  cartMapper.updatecart(product_id,username,number);
 	}
@@ -60,6 +60,13 @@ public class CartServiceImpl implements CartService {
 		// TODO Auto-generated method stub
 		return cartMapper.Findone(username, product_id);
 	}
+
+	@Override
+	public Cart updatenumber(int product_id, String username, int number) {
+		// TODO Auto-generated method stub
+		return cartMapper.updatenumber(product_id,username,number);
+	}
+
 
 
 }

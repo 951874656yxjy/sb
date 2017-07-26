@@ -7,7 +7,7 @@ public class Cart {
     private int user_id;
     private String name;
     private String price;
-    private String number ;
+    private int number ;
     private String image;
     private String username;
     
@@ -24,12 +24,6 @@ public class Cart {
 		this.name = name;
 	}
 
-	public String getNumber() {
-		return number;
-	}
-	public void setNumber(String number) {
-		this.number = number;
-	}
 	public String getPrice() {
 		return price;
 	}
@@ -65,6 +59,12 @@ public class Cart {
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	

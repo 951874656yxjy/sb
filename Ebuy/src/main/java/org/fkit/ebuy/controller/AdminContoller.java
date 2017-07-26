@@ -114,7 +114,7 @@ public class AdminContoller {
 				sendemail.setCharset("UTF-8");
 				sendemail.addTo(email);
 				sendemail.setFrom("18051369196@163.com");
-				sendemail.setSubject("找回密码");
+				sendemail.setSubject("订单通知");
 				sendemail.setMsg(builder.toString());
 				sendemail.send();
 				System.out.println(builder.toString());

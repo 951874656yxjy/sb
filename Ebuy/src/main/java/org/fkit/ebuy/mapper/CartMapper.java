@@ -26,17 +26,21 @@ public interface CartMapper {
 	List<Cart> findAll(String username);
 	
 	@Select("insert into tb_cart(product_id,name,price,image,number,username) values(#{product_id},#{name},#{price},#{image},#{number},#{username})")
-	Cart newcart(@Param("product_id")int product_id,@Param("name")String name,@Param("price")String price,@Param("image")String image,@Param("number")String number,
+	Cart newcart(@Param("product_id")int product_id,@Param("name")String name,@Param("price")String price,@Param("image")String image,@Param("number")int number,
 			@Param("username")String username);
 	
 	@Delete("delete from tb_cart where product_id=#{product_id}")
 	void decart(int product_id);
 	
 	@Select("update tb_cart set number=#{number} where product_id=#{product_id} and username=#{username}")
-	Cart updatecart(@Param("product_id")int product_id,@Param("username")String username,@Param("number")String number);
+	Cart updatecart(@Param("product_id")int product_id,@Param("username")String username,@Param("number")int number);
 	
 	@Select(" select * from tb_cart where username=#{username} and product_id=${product_id}")
 	Cart Findone(@Param("username")String username,@Param("product_id")int product_id);
+	
+	@Select("update tb_cart set number=#{number}+number where product_id=#{product_id} and username=#{username}")
+	Cart updatenumber(@Param("product_id")int product_id,@Param("username")String username,@Param("number")int number);
+
 	
 
 	
